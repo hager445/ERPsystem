@@ -1,0 +1,47 @@
+<div class="task-manager">
+  <!-- Task Input Section -->
+  <div class="task-input">
+    <h2 class="title">Task Manager</h2>
+    <div class="inputs">
+      <input
+        id="task-input"
+        type="text"
+        [(ngModel)]="taskName"
+        placeholder="Enter task"
+        class="input-field"
+      />
+      <input
+        id="description-input"
+        type="text"
+        [(ngModel)]="taskDescription"
+        placeholder="Enter description"
+        class="input-field"
+      />
+      <button (click)="handleSubmit()" class="add-btn">Add Task</button>
+    </div>
+  </div>
+
+  <!-- Task Table Section -->
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (task of tasks; track $index) {
+
+      <tr>
+        <td>{{ task.name }}</td>
+        <td>{{ task.description }}</td>
+        <td>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

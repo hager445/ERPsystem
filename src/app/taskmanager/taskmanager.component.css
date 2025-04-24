@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2e2e2e;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.task-manager {
+  width: 80%;
+  max-width: 900px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  color: #f1f1f1;
+  margin-bottom: 20px;
+}
+
+.inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.input-field {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: white;
+  width: 30%;
+}
+
+.add-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+/* Task Table */
+.task-table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.task-table th,
+.task-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.task-table th {
+  background-color: #444;
+  color: #f1f1f1;
+}
+
+.task-table tr:nth-child(even) {
+  background-color: #333;
+}
+
+.task-table tr:hover {
+  background-color: #555;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #f7a21d;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+}
+
+.edit-btn:hover {
+  background-color: #f69c13;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
