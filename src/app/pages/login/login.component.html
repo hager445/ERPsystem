@@ -1,1 +1,53 @@
-<p>login works!</p>
+<section class="mt-16">
+  <h2 class="text-center text-2xl font-semibold">
+    Login to Access Your ERP Dashboard
+  </h2>
+
+  <form
+    (ngSubmit)="loginSubmition()"
+    [formGroup]="loginUser"
+    class="w-[70%] mt-8 mx-auto bg-[var(--form-bg)] rounded-2xl px-16 py-10"
+  >
+    <!-- email -->
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-[13px] font-medium text-gray-900 dark:text-white"
+        >Your email</label
+      >
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        class="input:-webkit-autofill bg-[var(--inputs-bg)] text-[14px] rounded-lg w-full focus:border focus:ring-0 focus:border-gray-600 border-0 placeholder:text-neutral-700 placeholder:text-[12px] py-3"
+        placeholder="please insert your valid email"
+        required
+      />
+    </div>
+
+    <!-- password -->
+    <div class="mb-5">
+      <label
+        for="password"
+        class="block mb-2 text-[13px] font-medium text-gray-900 dark:text-white"
+        >Your password</label
+      >
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="input:-webkit-autofill bg-[var(--inputs-bg)] text-[14px] rounded-lg w-full focus:border focus:ring-0 focus:border-gray-600 border-0 placeholder:text-neutral-700 placeholder:text-[12px] py-3"
+        placeholder="please insert a strong password"
+        required
+      />
+    </div>
+
+    <!-- ======================================================== -->
+    <button
+      type="submit"
+      class="mt-10 btn-login z-0 border border-zinc-700 py-2 px-10 rounded-xl text-[14px] cursor-pointer relative"
+    >
+      LogIn!
+    </button>
+  </form>
+</section>
