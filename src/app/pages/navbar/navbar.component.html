@@ -1,0 +1,59 @@
+<p-toolbar
+  [style]="{
+    'border-left': 'none',
+    'border-right': 'none',
+    padding: '1rem 1rem 1rem 1.5rem',
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    right: '0',
+    'z-index': '1000',
+    'background-color': 'var(--nav-bg)'
+  }"
+>
+  <ng-template #start>
+    <div class="card flex justify-center gap-4">
+      <p-button
+        label="My ERP System"
+        [style]="{
+          color: 'white',
+          'background-color': 'transparent',
+          border: 'none'
+        }"
+      />
+    </div>
+  </ng-template>
+
+  <ng-template #end>
+    <!-- Notifications Icon -->
+    <button
+      pButton
+      pRipple
+      icon="pi pi-bell"
+      class="p-button-rounded p-button-text p-button-plain text-white hover:text-yellow-400"
+    ></button>
+
+    <!-- Messages Icon -->
+    <button
+      pButton
+      pRipple
+      icon="pi pi-envelope"
+      class="p-button-rounded ms-1 me-3 p-button-text p-button-plain text-white hover:text-green-400"
+    ></button>
+    <div (click)="menu.toggle($event)" style="cursor: pointer">
+      <div class="flex items-center gap-2">
+        <!-- Avatar + Name -->
+        <span class="text-white font-light text-[14px] capitalize">{{
+          userName
+        }}</span>
+        <div class="w-7 h-7 rounded-2xl bg-gray-700">
+          <img
+            [src]="userImage"
+            class="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+      </div>
+      <p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
+    </div>
+  </ng-template>
+</p-toolbar>

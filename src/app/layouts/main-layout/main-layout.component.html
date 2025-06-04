@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+<app-profile></app-profile>
+<div class="fixed z-50 top-24 right-10">
+  <app-togglebutton [toggleStatus]="{ relatedTo: 1, status: false }"
+    ><app-profile-toggle></app-profile-toggle
+  ></app-togglebutton>
+</div>
+<div
+  class="p-4 sm:ml-64 pt-25 transition-all duration-300"
+  [ngClass]="profileIsOpened ? 'sm:me-[360px]' : 'sm:me-[80px]'"
+>
+  <div class="relative">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MailLayoutComponent } from './mail-layout.component';
+import { ProfileToggleComponent } from './profile-toggle.component';
 
-describe('MailLayoutComponent', () => {
-  let component: MailLayoutComponent;
-  let fixture: ComponentFixture<MailLayoutComponent>;
+describe('ProfileToggleComponent', () => {
+  let component: ProfileToggleComponent;
+  let fixture: ComponentFixture<ProfileToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MailLayoutComponent]
+      imports: [ProfileToggleComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MailLayoutComponent);
+    fixture = TestBed.createComponent(ProfileToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

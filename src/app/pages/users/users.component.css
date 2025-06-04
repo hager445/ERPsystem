@@ -1,0 +1,11 @@
+::ng-deep .p-column-filter-overlay {
+  background-color: red !important;
+  color: white !important;
+}
+.custom-scroll::-webkit-scrollbar {
+  height: 3px; /* سمك الـ scroll أفقي */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #8f8d8d; /* خلفية المسار */
+}

@@ -11,4 +11,5 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 })
 export class AppComponent {
   title = 'ERPsystem';
+  constructor(){}
 }

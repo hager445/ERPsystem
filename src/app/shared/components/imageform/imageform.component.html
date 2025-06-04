@@ -1,0 +1,39 @@
+<section>
+  <form
+    (ngSubmit)="saveImageOperation()"
+    class="w-[70%] mt-8 mx-auto bg-[var(--form-bg)] rounded-2xl px-16 py-10"
+  >
+    <!-- image -->
+    <div class="mb-5">
+      <label
+        for="image"
+        class="block mb-2 text-[13px] font-medium text-gray-900 dark:text-white"
+        >Your image</label
+      >
+      <input
+        formControlName="image"
+        (change)="onSelectedImage($event)"
+        type="file"
+        id="image"
+        accept="image/*"
+        class="input:-webkit-autofill bg-[var(--inputs-bg)] text-[14px] rounded-lg w-full focus:border focus:ring-0 focus:border-gray-600 border-0 placeholder:text-neutral-700 placeholder:text-[12px] py-3"
+        placeholder="please insert your image"
+        required
+      />
+    </div>
+    <button
+      type="button"
+      (click)="saveImageOperation()"
+      class="mt-10 btn-register z-0 border border-zinc-700 py-2 px-10 rounded-xl text-[14px] cursor-pointer relative"
+    >
+      Save!
+    </button>
+    <button
+      type="button"
+      (click)="skipImage()"
+      class="mt-10 btn-register z-0 border border-zinc-700 py-2 px-10 rounded-xl text-[14px] cursor-pointer relative"
+    >
+      Skip!
+    </button>
+  </form>
+</section>

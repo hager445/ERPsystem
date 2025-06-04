@@ -1,0 +1,52 @@
+<section class="flex gap-4">
+  <div
+    className="relative bg-[var(--nav-bg)] text-white rounded-md overflow-hidden"
+  >
+    <select
+      (change)="checkFilterBy($event)"
+      class="w-[110px] text-[11px] bg-[var(--nav-bg)] border-0 text-white rounded-md px-4 py-2 focus:outline-none focus:ring-0 appearance-none"
+    >
+      <option value="" class="bg-[var(--nav-bg)] text-gray-400">
+        Filter by ...
+      </option>
+      @for (option of columnsName; track $index) {
+      <option [value]="option" class="bg-[var(--nav-bg)] text-white capitalize">
+        {{ option === "full_name" ? "user name" : option }}
+      </option>
+      }
+    </select>
+  </div>
+
+  <!-- ==================== -->
+
+  <label for="table-search" class="sr-only">Search</label>
+  <div class="relative">
+    <div
+      class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none"
+    >
+      <svg
+        class="w-4 h-4 text-gray-500 dark:text-gray-400"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 20 20"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+        />
+      </svg>
+    </div>
+
+    <input
+      (input)="onSearch($event)"
+      type="text"
+      id="table-search-users"
+      class="block p-2 ps-10 text-[12px] text-gray-100 rounded-lg w-80 focus:ring-0 border-0 bg-[var(--nav-bg)] placeholder-gray-200"
+      placeholder="Search for users"
+    />
+  </div>
+</section>

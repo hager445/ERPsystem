@@ -1,0 +1,167 @@
+<!-- Search and Filter Section -->
+<div
+  class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4"
+>
+  <app-togglebutton [toggleStatus]="{ relatedTo: 0, status: false }">
+    <app-arrangeinorder></app-arrangeinorder>
+  </app-togglebutton>
+  <div>
+    <button
+      [disabled]="isButtonDisabled"
+      type="button"
+      (click)="setAddModeAsActive()"
+      class="inline-flex items-center text-gray-300 bg-[#252830] border border-gray-600 focus:outline-none hover:bg-[#2a2d37] hover:border-gray-500 focus:ring-4 focus:ring-gray-700 font-medium rounded-lg text-xs px-3 py-2 transition-all duration-200"
+    >
+      <svg
+        class="w-3 h-3 me-2"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 20 20"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+        />
+      </svg>
+      Add New User
+    </button>
+  </div>
+  <app-searchfor
+    [columnsName]="['full_name', 'email', 'role', 'location']"
+  ></app-searchfor>
+  <!-- ========= -->
+</div>
+<div
+  class="relative overflow-x-auto custom-scroll sm:rounded-lg bg-[var(--nav-bg)] py-8 shadow-[var(--shadow)]"
+>
+  <!-- Table -->
+  <table class="w-full text-[13px] text-center text-gray-100 px-5">
+    <thead class="text-sm text-gray-100 bg-[var(--nav-bg)]">
+      <tr class="text-nowrap">
+        <th scope="col" class="px-6 py-3">User Image</th>
+        <th scope="col" class="px-6 py-3">Full Name</th>
+        <th scope="col" class="px-6 py-3">Country</th>
+        <th scope="col" class="px-6 py-3">Role</th>
+        <th scope="col" class="px-6 py-3">Created At</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">Actions</th>
+        <th scope="col" class="px-6 py-3">Created By</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.id) {
+      <tr class="bg-[var(--nav-bg)] hover:bg-[var(--nav-hover)]">
+        <td class="px-6 py-4">
+          <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+            <img
+              [src]="user.image"
+              [alt]="user.full_name"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </td>
+        <td scope="row" class="px-6 py-4">
+          <div class="ps-3">
+            <div class="font-normal">{{ user.full_name }}</div>
+          </div>
+        </td>
+
+        <td class="px-6 py-4">
+          <div class="flex items-center">
+            <span class="text-sm text-gray-900 dark:text-white">{{
+              user.location
+            }}</span>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="flex items-center">
+            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+            <span>{{ user.role }}</span>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <span>
+            {{ user.created_at | date : "MM/dd/yyyy" }}
+          </span>
+        </td>
+        <td scope="row" class="px-6 py-4">
+          <div class="ps-3">
+            <div>{{ user.email }}</div>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="flex items-center space-x-2">
+            <button
+              [disabled]="isButtonDisabled"
+              (click)="
+                showToaster();
+                setUpdateModeAsActive();
+                openForm();
+                SendUserInfo(user)
+              "
+              type="button"
+              class="font-medium text-gray-200 hover:underline"
+            >
+              Edit
+            </button>
+            <span class="text-gray-300 dark:text-gray-600">|</span>
+            <button
+              [disabled]="isButtonDisabled"
+              (click)="showToaster(); deleteUserById(user.user_id)"
+              type="button"
+              class="font-medium text-red-600 dark:text-red-500 hover:underline"
+            >
+              Delete
+            </button>
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <span
+            class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300"
+          >
+            Own
+          </span>
+        </td>
+      </tr>
+      } @empty {
+      <tr class="bg-[var(--nav-bg)]">
+        <td
+          colspan="9"
+          class="px-6 py-4 text-center text-gray-500 dark:text-gray-400"
+        >
+          <div class="flex flex-col items-center justify-center py-8">
+            <svg
+              class="w-12 h-12 text-gray-400 mb-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+              ></path>
+            </svg>
+            <p class="text-lg mb-1">No users found</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Get started by adding a new user.
+            </p>
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+@if (formIsOpened) {
+
+<section class="layer" [class]="!formIsOpened ? 'hide' : ''">
+  <app-register></app-register>
+</section>
+}

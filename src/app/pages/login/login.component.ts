@@ -23,11 +23,12 @@ this.loginUser = this.fb.group(
 )
   }
   loginSubmition(){
-   console.log(this.loginUser);
+   console.log('login',this.loginUser);
    if(!this.loginUser.valid) return;
    const { email, password } = this.loginUser.value;
    this._Auth.signIn(email,password).then(()=>{
     console.log('done');
+    
     this.Router.navigate(['/profile'])
    });
   }
